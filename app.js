@@ -1,0 +1,240 @@
+
+
+ 
+
+
+
+
+
+
+ 
+const express = require('express');
+const app = express();
+const PORT = 3001;
+
+// Define a route for the root path
+app.get('/', (req, res) => {
+  res.send('Hello, this is the root path!');
+});
+  
+  app.get('/api/items', (req, res) => {
+      const items = [
+     
+          {
+              id: 1,
+              name: "Laptop",
+              price:40000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQf51MM-r31qfCZrQ5rEgAUTWDZbGkJPHs9yPK6RvI99V4lwjJJ2YUpU0Ljtm9xK_Kt4c&usqp=CAU",
+              rating: 4.5,
+              color: "Silver"
+            },
+            {
+              id: 2,
+              name: "Smartphone",
+              price:20000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGEiwDLu2Y1QO5coHISj7Jbgqmuu5PStrWkA&usqp=CAU",
+                       rating: 4.2,
+              color: "Purple"
+              
+            },
+            {
+              id: 3,
+              name: "Wireless Headphones",
+              price:5000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvb0tbt4FiU9Bw-X3ohj31oUPiatSMQwhpRw&usqp=CAU",
+                   rating: 4.8,
+              color: "Blue"
+            },
+            {
+              id: 4,
+              name: "Fitness Tracker",
+              price:3000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmfM0byybloGaAUgx50MeRjWWzGg9rhszfeA&usqp=CAU",
+                   rating: 4.0,
+              color: "Black"
+            },
+            {
+              id: 5,
+              name: "TV",
+              price:40000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaDs7YQY4FdYtIxLt5LlpuuGqwvFa8hDEw2g&usqp=CAU",
+                  rating: 4.6,
+              color: "Black"
+             
+            },
+            {
+              id: 6,
+              name: "Coffee Maker",
+              price:10000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRACVZ4D7hNumig3QawZLUs7fkJiXVjkPfeA&usqp=CAU",
+                  rating: 3.9,
+              color: "Brown"
+             
+            },
+            {
+              id: 7,
+              name: "Gaming Console",
+              price:2000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHQlSdUENC7gvgCWerJyG2ms6Q_4pg9w-pKw&usqp=CAU",
+          rating: 4.5,
+              color: "Teal"
+            },
+            {
+              id: 8,
+              name: "Smartwatch",
+              price:3000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdoaP7i7gdy9wdDbAuAR9sCAQkKpVltjFjAw&usqp=CAU",
+                 rating: 4.2,
+              color: "Blue"
+            },
+            {
+              id: 9,
+              name: "Bluetooth Speaker",
+              price:3000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqpAwf4LNianCdxmATB5BWJMUH-ibDgas-iA&usqp=CAU",
+                  rating: 3.7,
+              color: "Black"
+            },
+            {
+              id: 10,
+              name: "Digital Camera",
+              price:40000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnoaOqONbCtjiwG1E5u0pUkgmDHjUsUQKa5g&usqp=CAU",
+              rating: 4.1,
+              color: "Silver"
+            },
+            {
+              id: 11,
+              name: "Desk Chair",
+              price:400,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBUaBcA-unesSLsbMNquJgb6jDALWWlQW2Tti8N038nMOdtkVtvSTsYnKjzA2IYIsEzbs&usqp=CAU",
+                rating: 4.8,
+              color: "Black"
+            },
+            {
+              id: 12,
+              name: "Wireless Mouse",
+              price:400,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvqUYQ6XdoOIaYIavt5UnELH1UqqO828XR1BgFFyC50uDSsZg94R9WOp8EhdJ62thG-BQ&usqp=CAU", 
+               rating: 3.5,
+              color: "Silver"
+            },
+            {
+              id: 13,
+              name: "Portable Charger",
+              price:800,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSlkNwZgR-eC4YOmUW2EwLSzxFrGQXWhdjjw&usqp=CAU",
+              rating: 4.6,
+              color: "White"
+            },
+            {
+              id: 14,
+              name: "Backpack",
+              price:900,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGA7SNsKxDxwlvHzaH276LaxBHJXaWzrj4lhCY2L-RFkdlUzLaunnS0d-uvsXYonyHm7U&usqp=CAU",            rating: 3.8,
+              color: "Green"
+            },
+            {
+              id: 15,
+              name: "External Hard Drive",
+              price:400,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9WoviJqiz-EIp4KzaWR03dZec3fEe2K9B9g&usqp=CAU",
+              rating: 4.3,
+              color: "Black"
+            },
+            {
+              "id": 16,
+              name: "Wireless Keyboard",
+              price:400,
+              image: "https://images-cdn.ubuy.co.in/633d8d799b46316636712e10-wireless-keyboard-for-laptop-or-desktop.jpg",
+              rating: 4.0,
+              color: "Black"
+            },
+            {
+              id: 17,
+              name: "Printer",
+              price:40000,
+              image: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61oeZRV1ZTL._AC_UF1000,1000_QL80_.jpg",
+              rating: 3.5,
+              color: "White"
+            },
+            {
+              id: 18,
+              name: "Noise-Canceling Headphones",
+              price:40000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvnXFSFGJgIgn_QWCiWvihEEL2OnkX0fM57g&usqp=CAU",
+              rating: 4.7,
+              color: "Black"
+            },
+            {
+              id: 19,
+              name: "Tablet",
+              price:20000,
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZi-pPIVG-PCxwGcn1zYxQlDF4IIb-tdIUCQ&usqp=CAU",
+              rating: 4.2,
+              color: "White"
+            },
+            {
+              id: 20,
+              name: "Smart Thermostat",
+              price:40000,
+              image: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/51JSqlt6xLL._AC_UF894,1000_QL80_.jpg",
+              rating: 4.9,
+              color: "Silver"
+            }
+        ];
+  
+    // Generate HTML table
+    const htmlTable = `
+      <html>
+        <head>
+          <style>
+            table {
+              font-family: Arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            th, td {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            th {
+              background-color: #f2f2f2;
+            }
+          </style>
+        </head>
+        <body>
+          <h2>Product List</h2>
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Image</th>
+              <th>Rating</th>
+              <th>Color</th>
+            </tr>
+            ${items.map(item => `
+              <tr>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.price}</td>
+                <td><img src="${item.image}" alt="${item.name}" style="max-width: 50px;"></td>
+                <td>${item.rating}</td>
+                <td>${item.color}</td>
+              </tr>
+            `).join('')}
+          </table>
+        </body>
+      </html>
+    `;
+  
+    res.send(htmlTable);
+    // res.json(items);
+  });
+  
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+  
